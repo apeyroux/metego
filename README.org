@@ -1,6 +1,8 @@
 * metego
 
-API pour consulter ca https://openmeteoforecast.org/wiki/API/0.1 et ca http://wiki.openstreetmap.org/wiki/Nominatim
+** Présentation
+
+API pour consulter ca https://openmeteoforecast.org/wiki/API/0.1 via ca http://wiki.openstreetmap.org/wiki/Nominatim
 
 ** Installation 
 
