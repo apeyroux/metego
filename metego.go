@@ -73,42 +73,42 @@ type OMet struct {
 	Srv                   string
 }
 
-func NewNominatim(q string) *Nominatim {
+func NewNominatim(q string) (*Nominatim, error) {
 	var nr []Nominatim
 
 	urlws := fmt.Sprintf("%s/search?q=%s&format=json&limit=1", URL_BASE_NOMINATIM, q)
 
 	resp, err := http.Get(urlws)
 	if err != nil {
-		fmt.Errorf("Can't connect to nominatim :( (%s)", err)
+		return nil, err
 	}
 
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
-		fmt.Errorf("Can't read nominatim response (%s)", err)
+		return nil, err
 	}
 
 	json.Unmarshal(body, &nr)
 
-	return &nr[0]
+	return &nr[0], _
 }
 
-func NewOmet(nominatim *Nominatim) *OMet {
+func NewOMet(nominatim *Nominatim) (*OMet, error) {
 	var or OMet
 
 	urlws := fmt.Sprintf("%s/0.1/forecast/eu12/%s,%s/now.json", URL_BASE_OMET, nominatim.Lat, nominatim.Lon)
 
 	resp, err := http.Get(urlws)
 	if err != nil {
-		fmt.Errorf("Can't connect to omet :( (%s)", err)
+		return nil, err
 	}
 
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
-		fmt.Errorf("Can't read omet response (%s)", err)
+		return nil, err
 	}
 
 	json.Unmarshal(body, &or)
 
-	return &or
+	return &or, nil
 }
