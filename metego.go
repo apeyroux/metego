@@ -90,7 +90,7 @@ func NewNominatim(q string) (*Nominatim, error) {
 
 	json.Unmarshal(body, &nr)
 
-	return &nr[0], _
+	return &nr[0], nil
 }
 
 func NewOMet(nominatim *Nominatim) (*OMet, error) {
