@@ -1,0 +1,220 @@
+use 'godoc cmd//target' for documentation on the /target command 
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "."</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+			</div>
+		</div>
+		
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+				<dd><a href="#pkg-constants">Constants</a></dd>
+			
+			
+			
+			
+				
+				<dd><a href="#Grid">type Grid</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Nominatim">type Nominatim</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewNominatim">func NewNominatim(q string) (*Nominatim, error)</a></dd>
+				
+				
+			
+				
+				<dd><a href="#OMet">type OMet</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewOMet">func NewOMet(nominatim *Nominatim) (*OMet, error)</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h4>Package files</h4>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="/target/metego.go">metego.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+			<h2 id="pkg-constants">Constants</h2>
+			
+				<pre>const (
+    <span id="URL_BASE_NOMINATIM">URL_BASE_NOMINATIM</span> = &#34;http://nominatim.openstreetmap.org&#34;
+    <span id="URL_BASE_OMET">URL_BASE_OMET</span>      = &#34;http://api.ometfn.net&#34;
+)</pre>
+				
+			
+		
+		
+		
+		
+			
+			
+			<h2 id="Grid">type <a href="/target/metego.go?s=723:795#L28">Grid</a></h2>
+			<pre>type Grid struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}</pre>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Nominatim">type <a href="/target/metego.go?s=442:721#L13">Nominatim</a></h2>
+			<pre>type Nominatim struct {
+    Place_id     <a href="/pkg/builtin/#string">string</a>
+    Licence      <a href="/pkg/builtin/#string">string</a>
+    Osm_type     <a href="/pkg/builtin/#string">string</a>
+    Osm_id       <a href="/pkg/builtin/#string">string</a>
+    Boundingbox  []<a href="/pkg/builtin/#string">string</a>
+    Lat          <a href="/pkg/builtin/#string">string</a>
+    Lon          <a href="/pkg/builtin/#string">string</a>
+    Display_name <a href="/pkg/builtin/#string">string</a>
+    Class        <a href="/pkg/builtin/#string">string</a>
+    Type         <a href="/pkg/builtin/#string">string</a>
+    Importance   <a href="/pkg/builtin/#string">string</a>
+    Icon         <a href="/pkg/builtin/#string">string</a>
+}</pre>
+			
+
+			
+
+			
+
+			
+
+			
+				
+				<h3 id="NewNominatim">func <a href="/target/metego.go?s=1635:1682#L66">NewNominatim</a></h3>
+				<pre>func NewNominatim(q <a href="/pkg/builtin/#string">string</a>) (*<a href="#Nominatim">Nominatim</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				
+				
+			
+
+			
+		
+			
+			
+			<h2 id="OMet">type <a href="/target/metego.go?s=797:1633#L35">OMet</a></h2>
+			<pre>type OMet struct {
+    Doc                   <a href="/pkg/builtin/#string">string</a>
+    License               <a href="/pkg/builtin/#string">string</a>
+    Domain                <a href="/pkg/builtin/#string">string</a>
+    Run                   <a href="/pkg/builtin/#string">string</a>
+    Grid                  <a href="#Grid">Grid</a>
+    Ntimes                <a href="/pkg/builtin/#int">int</a>
+    Times                 []<a href="/pkg/builtin/#int">int</a>
+    Temp                  []<a href="/pkg/builtin/#int">int</a>
+    Rh                    []<a href="/pkg/builtin/#int">int</a>
+    Low_clouds            []<a href="/pkg/builtin/#int">int</a>
+    Medium_clouds         []<a href="/pkg/builtin/#int">int</a>
+    High_clouds           []<a href="/pkg/builtin/#int">int</a>
+    Precipitations        []<a href="/pkg/builtin/#int">int</a>
+    Pblh                  []<a href="/pkg/builtin/#int">int</a>
+    Pressure              []<a href="/pkg/builtin/#int">int</a>
+    Wind_10m_ground_speed []<a href="/pkg/builtin/#int">int</a>
+    Wind_10m_ground_dir   []<a href="/pkg/builtin/#int">int</a>
+    Wind_1000m_msl_speed  []<a href="/pkg/builtin/#int">int</a>
+    Wind_1000m_msl_dir    []<a href="/pkg/builtin/#int">int</a>
+    Wind_2000m_msl_speed  []<a href="/pkg/builtin/#int">int</a>
+    Wind_2000m_msl_dir    []<a href="/pkg/builtin/#int">int</a>
+    Wind_3000m_msl_speed  []<a href="/pkg/builtin/#int">int</a>
+    Wind_3000m_msl_dir    []<a href="/pkg/builtin/#int">int</a>
+    Wind_4000m_msl_speed  []<a href="/pkg/builtin/#int">int</a>
+    Wind_4000m_msl_dir    []<a href="/pkg/builtin/#int">int</a>
+    Status                <a href="/pkg/builtin/#string">string</a>
+    Msg                   <a href="/pkg/builtin/#string">string</a>
+    Srv                   <a href="/pkg/builtin/#string">string</a>
+}</pre>
+			
+
+			
+
+			
+
+			
+
+			
+				
+				<h3 id="NewOMet">func <a href="/target/metego.go?s=1989:2038#L86">NewOMet</a></h3>
+				<pre>func NewOMet(nominatim *<a href="#Nominatim">Nominatim</a>) (*<a href="#OMet">OMet</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				
+				
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
