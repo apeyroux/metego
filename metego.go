@@ -78,12 +78,14 @@ func NewNominatim(q string) (*Nominatim, error) {
 
 	urlws := fmt.Sprintf("%s/search?q=%s&format=json&limit=1", URL_BASE_NOMINATIM, q)
 
-	if resp, err := http.Get(urlws); err != nil {
+	resp, err := http.Get(urlws)
+	if err != nil {
 		return nil, err
 	}
 	defer resp.Body.Close()
 
-	if body, err := ioutil.ReadAll(resp.Body); err != nil {
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
 		return nil, err
 	}
 
@@ -97,12 +99,15 @@ func NewOMet(nominatim *Nominatim) (*OMet, error) {
 
 	urlws := fmt.Sprintf("%s/0.1/forecast/eu12/%s,%s/now.json", URL_BASE_OMET, nominatim.Lat, nominatim.Lon)
 
-	if resp, err := http.Get(urlws); err != nil {
+	resp, err := http.Get(urlws)
+	if err != nil {
 		return nil, err
 	}
 	defer resp.Body.Close()
 
-	if body, err := ioutil.ReadAll(resp.Body); err != nil {
+	body, err := ioutil.ReadAll(resp.Body)
+
+	if err != nil {
 		return nil, err
 	}
 
